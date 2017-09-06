@@ -1,0 +1,217 @@
+/*
+ * Infinite Scroll CSS
+ *
+ * @package ThemeZee Toolkit
+ */
+
+/* =Infinity Styles
+-------------------------------------------------------------- */
+
+
+
+.infinite-loader {
+  display: block;
+
+  height: 28px;
+
+  text-indent: -9999px;
+
+  color: #000000;
+}
+
+#infinite-handle span {
+  font-size: 13px;
+
+  padding: 6px 16px;
+
+  cursor: pointer;
+
+  color: #eeeeee;
+  border-radius: 1px;
+  background: #333333;
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    position: static;
+
+    display: inline;
+
+    margin: 0;
+    padding: 0;
+
+    cursor: inherit;
+
+    color: inherit;
+    border: none;
+    background: transparent;
+    &:hover,
+    &:focus {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+
+      position: static;
+
+      display: inline;
+
+      margin: 0;
+      padding: 0;
+
+      cursor: inherit;
+
+      color: inherit;
+      border: none;
+      background: transparent;
+    }
+    &::-moz-focus-inner {
+      margin: 0;
+      padding: 0;
+
+      border: none;
+    }
+  }
+}
+
+/**
+ * Using a highly-specific rule to make sure that all button styles
+ * will be reset
+ */
+
+/**
+ * This is used to avoid unnecessary inner button spacing in Firefox
+ */
+
+/**
+ * For smaller viewports, remove the down-arrow icon and turn
+ * the button into a block element, spanning the content's full width.
+ */
+@media (max-width: 800px) {
+  #infinite-handle span {
+    display: block;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+/**
+ * Footer
+ */
+
+#infinite-footer {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
+  .blog-info a:hover,
+  .blog-credits a:hover {
+    text-decoration: underline;
+
+    color: #444444;
+  }
+  .container {
+    overflow: hidden;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    width: 780px;
+    margin: 0 auto;
+    padding: 1px 20px;
+
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: #cccccc;
+    border-color: rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, .8);
+  }
+  .blog-info,
+  .blog-credits {
+    line-height: 25px;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .blog-info {
+    float: left;
+    overflow: hidden;
+
+    width: 40%;
+
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .blog-credits {
+    font-weight: normal;
+
+    float: right;
+
+    width: 60%;
+  }
+  .blog-info a {
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #111111;
+  }
+  .blog-credits {
+    font-size: 12px;
+
+    text-align: right;
+
+    color: #888888;
+    a {
+      color: #666666;
+    }
+  }
+}
+
+/**
+ * Hooks to infinity-end body class to restore footer
+ */
+
+.infinity-end.neverending #infinite-footer {
+  display: none;
+}
+
+/**
+ * Responsive structure for the footer
+ */
+@media (max-width: 640px) {
+  #infinite-footer {
+    .container {
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      width: 100%;
+    }
+    .blog-info {
+      width: 30%;
+    }
+    .blog-credits {
+      width: 70%;
+    }
+    .blog-info a,
+    .blog-credits {
+      font-size: 10px;
+    }
+  }
+}
+
+/**
+ * No fixed footer on small viewports
+ */
+@media (max-width: 640px) {
+  #infinite-footer {
+    position: static;
+  }
+}
