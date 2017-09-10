@@ -38,6 +38,9 @@ function wpeStyles()  {
   wp_dequeue_style('fancybox');
   wp_dequeue_style('wp_dequeue_style');
 
+  wp_register_style('wpeasy-styleold', get_template_directory_uri() . '/css/styleold.css', array(), '1.0', 'all');
+  wp_enqueue_style('wpeasy-styleold'); // Enqueue it!
+
   wp_register_style('wpeasy-style', get_template_directory_uri() . '/css/main.css', array(), '1.0', 'all');
   wp_enqueue_style('wpeasy-style'); // Enqueue it!
 }
@@ -117,7 +120,29 @@ function wpeHeadNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="headnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="main-navigation-menu">%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+function wpeHeadSocNav() {
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'header-soc-menu',
+    'menu'            => '',
+    'container'       => 'div',
+    'container_class' => 'menu-{menu slug}-container',
+    'container_id'    => '',
+    'menu_class'      => 'menu',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul id="menu-soc" class="social-icons-menu">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -173,7 +198,8 @@ function wpeSideNav() {
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 function register_html5_menu() {
   register_nav_menus(array(
-    'header-menu' => __('Меню в шапке', 'wpeasy'),
+    'header-menu' => __('Меню в шапку', 'wpeasy'),
+    'header-soc-menu' => __('соц в шапку', 'wpeasy'),
     'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'),
     'footer-menu' => __('Меню в подвал', 'wpeasy')
   ));
