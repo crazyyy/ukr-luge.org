@@ -21,3 +21,18 @@ if (typeof jQuery === 'undefined') {
   console.log('jQuery has loaded');
 }
 // Place any jQuery/helper plugins in here.
+
+jQuery(document).ready(function($) {
+
+  /* Add flexslider to #post-slider div */
+  $("#post-slider").flexslider({
+    animation: "slide",
+    slideshowSpeed: "7000",
+    namespace: "zeeflex-",
+    selector: ".zeeslides > li",
+    smoothHeight: true,
+    pauseOnHover: true,
+    controlsContainer: ".post-slider-controls"
+  });
+
+});

@@ -14,6 +14,7 @@
   <link href="<?php echo get_template_directory_uri(); ?>/favicon.ico" rel="shortcut icon">
 
   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C700%2C700italic%7CMontserrat%3A400%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/genericons/3.1/genericons.min.css" type="text/css" media="all" >
 
   <!--[if lt IE 9]>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -36,8 +37,6 @@
           <?php wpeHeadSocNav(); ?>
         </div>
 
-        <button id="main-navigation-toggle" class="main-navigation-toggle"></button>
-
         <nav id="main-navigation" class="primary-navigation navigation clearfix" role="navigation">
           <div class="main-navigation-menu-wrap">
             <?php wpeHeadNav(); ?>
@@ -49,20 +48,10 @@
 
     <header id="masthead" class="site-header clearfix" role="banner">
       <div class="header-main container clearfix">
-        <div id="logo" class="site-branding clearfix">
-
-          <div class="logo">
-            <?php if ( !is_front_page() && !is_home() ){ ?>
-              <a href="<?php echo home_url(); ?>">
-            <?php } ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-                <h1>Федерація санного спорту України</h1>
-            <?php if ( !is_front_page() && !is_home() ){ ?>
-              </a>
-            <?php } ?>
-          </div><!-- /logo -->
-
-        </div>
+        <a href="<?php echo home_url(); ?>" id="logo" class="site-branding clearfix">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
+          <h1>Федерація санного спорту України</h1>
+        </a>
         <!-- .site-branding -->
       </div>
       <!-- .header-main -->

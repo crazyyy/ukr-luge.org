@@ -1,34 +1,34 @@
 <?php get_header(); ?>
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <section id="primary" class="content-archive content-area post-layout-two-columns">
 
-      <h1 class="single-title inner-title"><?php the_title(); ?></h1>
-      <?php if ( has_post_thumbnail()) :?>
-        <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php the_post_thumbnail(); // Fullsize image for the single post ?>
-        </a>
-      <?php endif; ?><!-- /post thumbnail -->
+    <button id="small-sidebar-toggle" class="small-sidebar-toggle sidebar-toggle"></button>
+    <button id="main-sidebar-toggle" class="main-sidebar-toggle sidebar-toggle"></button>
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+      <main id="main" class="site-main" role="main">
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
-      <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-      <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
+        <header class="page-header clearfix">
+          <h2 class="page-title"><?php the_category(', '); ?></h2>
+        </header>
 
-      <?php the_content(); ?>
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <?php the_tags( __( 'Tags: ', 'wpeasy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+          <header class="entry-header">
+            <h1 class="entry-title"><?php the_title(); ?></h1>
+          </header><!-- .entry-header -->
 
-      <p><?php _e( 'Categorised in: ', 'wpeasy' ); the_category(', '); // Separated by commas ?></p>
+          <div class="entry-content clearfix">
+            <?php the_content(); ?>
+          </div><!-- .entry-content -->
 
-      <p><?php _e( 'This post was written by ', 'wpeasy' ); the_author(); ?></p>
+        </article>
 
-      <?php edit_post_link(); ?>
+      </main>
+    <?php endwhile; endif; ?>
+  </section>
+  <!-- #primary -->
 
-      <?php comments_template(); ?>
-
-    </article>
-  <?php endwhile; endif; ?>
-
-  <?php get_sidebar(); ?>
+  <?php get_sidebar('left'); ?>
+  <?php get_sidebar('right'); ?>
 
 <?php get_footer(); ?>

@@ -1,15 +1,26 @@
 <?php get_header(); ?>
-
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <section id="primary" class="content-archive content-area post-layout-two-columns">
 
-      <h1 class="page-title inner-title"><?php the_title(); ?></h1>
-      <?php the_content(); ?>
-      <?php edit_post_link(); ?>
+      <main id="main" class="site-main" role="main">
 
-    </article>
+        <header class="page-header clearfix">
+          <h2 class="page-title"><?php the_title(); ?></h2>
+        </header>
+
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+          <div class="entry-content clearfix">
+            <?php the_content(); ?>
+          </div><!-- .entry-content -->
+
+        </article>
+
+      </main>
+    </section><!-- #primary -->
   <?php endwhile; endif; ?>
 
-  <?php get_sidebar(); ?>
+  <?php get_sidebar('left'); ?>
+  <?php get_sidebar('right'); ?>
 
 <?php get_footer(); ?>

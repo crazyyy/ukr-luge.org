@@ -14,96 +14,102 @@
 
 (function($) {
 
-	/**--------------------------------------------------------------
-	# Responsive Sidebar
-	--------------------------------------------------------------*/
-	$.fn.responsiveSidebar = function( options ) {
+  /**--------------------------------------------------------------
+  # Responsive Sidebar
+  --------------------------------------------------------------*/
+  $.fn.responsiveSidebar = function(options) {
 
-		if ( options === undefined ) {
-			options = {};
-		}
+    if (options === undefined) {
+      options = {};
+    }
 
-		/* Set Defaults */
-		var defaults = {
-			toggleID: "sidebar-toggle",
-			maxWidth: "400px"
-		};
+    /* Set Defaults */
+    var defaults = {
+      toggleID: "sidebar-toggle",
+      maxWidth: "400px"
+    };
 
-		/* Set Variables */
-		var vars = $.extend( {}, defaults, options ),
-			toggleID = vars.toggleID,
-			maxWidth = vars.maxWidth,
-			$sidebar = $( this );
+    /* Set Variables */
+    var vars = $.extend({}, defaults, options),
+      toggleID = vars.toggleID,
+      maxWidth = vars.maxWidth,
+      $sidebar = $(this);
 
-		/* Add sidebar toggle effect */
-		$( '#' + toggleID ).on('click', function(){
-			$( this ).toggleClass( 'active' );
-			if ( $sidebar.is( ':visible' ) ) {
-				hideSidebar();
-			} else {
-				showSidebar();
-			}
-		});
+    /* Add sidebar toggle effect */
+    $('#' + toggleID).on('click', function() {
+      $(this).toggleClass('active');
+      if ($sidebar.is(':visible')) {
+        hideSidebar();
+      } else {
+        showSidebar();
+      }
+    });
 
-		/* Close Sidebar when title is clicked */
-		$sidebar.find( '.sidebar-header' ).on('click', function(){
-			$( this ).toggleClass( 'active' );
-			if ( $sidebar.is( ':visible' ) ) {
-				hideSidebar();
-			}
-		});
+    /* Close Sidebar when title is clicked */
+    $sidebar.find('.sidebar-header').on('click', function() {
+      $(this).toggleClass('active');
+      if ($sidebar.is(':visible')) {
+        hideSidebar();
+      }
+    });
 
-		/* Show sidebar and fade content area */
-		function showSidebar() {
+    /* Show sidebar and fade content area */
+    function showSidebar() {
 
-			$sidebar.show();
-			$sidebar.animate( { 'max-width': maxWidth }, 300 );
-			$( '#' + toggleID ).hide();
+      $sidebar.show();
+      $sidebar.animate({
+        'max-width': maxWidth
+      }, 300);
+      $('#' + toggleID).hide();
 
-		}
+    }
 
-		/* Hide sidebar and show full content area */
-		function hideSidebar() {
+    /* Hide sidebar and show full content area */
+    function hideSidebar() {
 
-			$sidebar.animate({ 'max-width': '0' },  300, function(){
-				$sidebar.hide();
-			});
+      $sidebar.animate({
+        'max-width': '0'
+      }, 300, function() {
+        $sidebar.hide();
+      });
 
-			$( '#' + toggleID ).show();
+      $('#' + toggleID).show();
 
-		}
+    }
 
-		/* Reset sidebar on desktop screen sizes */
-		function resetSidebar() {
+    /* Reset sidebar on desktop screen sizes */
+    function resetSidebar() {
 
-			$sidebar.show();
-			$sidebar.css( { 'max-width': '100%' } );
+      $sidebar.show();
+      $sidebar.css({
+        'max-width': '100%'
+      });
 
-		}
+    }
 
-	};
+  };
 
-	/**--------------------------------------------------------------
-	# Setup Sidebars
-	--------------------------------------------------------------*/
-	$( document ).ready( function() {
+  /**--------------------------------------------------------------
+  # Setup Sidebars
+  --------------------------------------------------------------*/
+  $(document).ready(function() {
 
-		/* Add sidebar toggles */
-		$( '#primary' ).prepend( '<button id=\"main-sidebar-toggle\" class=\"main-sidebar-toggle sidebar-toggle\"></button>' );
-		$( '#primary' ).prepend( '<button id=\"small-sidebar-toggle\" class=\"small-sidebar-toggle sidebar-toggle\"></button>' );
+    /* Add sidebar toggles */
+    $('#primary').prepend('<button id=\"main-sidebar-toggle\" class=\"main-sidebar-toggle sidebar-toggle\"></button>');
+    $('#primary').prepend('<button id=\"small-sidebar-toggle\" class=\"small-sidebar-toggle sidebar-toggle\"></button>');
 
-		/* Setup Main Sidebar */
-		$( ".main-sidebar" ).responsiveSidebar({
-			toggleID: "main-sidebar-toggle",
-			maxWidth: "350px"
-		});
+    /* Setup Main Sidebar */
+    $(".main-sidebar").responsiveSidebar({
+      toggleID: "main-sidebar-toggle",
+      maxWidth: "350px"
+    });
 
-		/* Setup Small Sidebar */
-		$( ".small-sidebar" ).responsiveSidebar({
-			toggleID: "small-sidebar-toggle",
-			maxWidth: "280px"
-		});
+    /* Setup Small Sidebar */
+    $(".small-sidebar").responsiveSidebar({
+      toggleID: "small-sidebar-toggle",
+      maxWidth: "280px"
+    });
 
-	} );
+  });
 
 }(jQuery));

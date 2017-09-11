@@ -1,10 +1,22 @@
 <?php get_header(); ?>
-  <article>
 
-    <h1 class="ctitle"><?php _e( 'Latest Posts', 'wpeasy' ); ?></h1>
-    <?php get_template_part('loop'); ?>
-    <?php get_template_part('pagination'); ?>
+  <section id="primary" class="content-archive content-area post-layout-two-columns">
 
-  </article>
-<?php get_sidebar(); ?>
+    <main id="main" class="site-main" role="main">
+      <header class="blog-header clearfix">
+        <h1 class="blog-title"><?php _e( 'Latest Posts', 'wpeasy' ); ?></h1>
+      </header>
+
+      <?php get_template_part('loop'); ?>
+
+      <?php get_template_part('pagination'); ?>
+
+    </main>
+    <!-- #main -->
+  </section>
+  <!-- #primary -->
+
+  <?php get_sidebar('left'); ?>
+  <?php get_sidebar('right'); ?>
+
 <?php get_footer(); ?>

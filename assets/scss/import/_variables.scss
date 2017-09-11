@@ -30,8 +30,9 @@ $base-z-index: 0;
 
 // Colors
 $orange: orange;
+$yellow: #ffe829;
 $red: red;
-$blue: #477dca;
+$blue: #0982c1;
 $gray-medium: #999;
 $gray-dark: #333;
 $gray-light: #ddd;
@@ -50,6 +51,8 @@ $secondary-background-color: tint($base-border-color, 75%);
 
 // Box Shadows
 $base-box-shadow: 0 1px 3px rgba(#000, .06);
+
+$base-text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, .06);

@@ -208,7 +208,7 @@ function register_html5_menu() {
 if (function_exists('register_sidebar')) {
   //  Define Sidebar Widget Area 1
   register_sidebar(array(
-    'name' => __('Блок виджетов #1', 'wpeasy'),
+    'name' => __('Блок віджетів зліва', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea1',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -217,9 +217,8 @@ if (function_exists('register_sidebar')) {
     'after_title' => '</h6>'
   ));
   //  Define Sidebar Widget Area 2. If your want to display more widget - uncoment this
-  /*
   register_sidebar(array(
-    'name' => __('Блок виджетов #2', 'wpeasy'),
+    'name' => __('Блок віджетів справа', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea2',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -227,7 +226,6 @@ if (function_exists('register_sidebar')) {
     'before_title' => '<h6>',
     'after_title' => '</h6>'
   ));
-  */
 }
 
 //  Custom Excerpts
@@ -260,13 +258,11 @@ function wpeExcerpt($length_callback = '', $more_callback = '') {
 
 //  Custom View Article link to Post
 //  RU: Добавляем "Читать дальше" к обрезанным записям
-/*
 function html5_blank_view_article($more) {
   global $post;
-  return '... <!-- noindex --><a rel="nofollow" class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'wpeasy') . '</a><!-- /noindex -->';
+  return '<!-- noindex --><a rel="nofollow" class="view-article" href="' . get_permalink($post->ID) . '">...</a><!-- /noindex -->';
 }
 add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
-*/
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
 function my_wp_nav_menu_args($args = '') {

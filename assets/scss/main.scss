@@ -1,4 +1,7 @@
 @import 'fonts/font_fontawesome';
+@import 'import/mixin';
+@import 'import/variables';
+
 /*
  * jQuery FlexSlider v2.5.0
  * http://www.woothemes.com/flexslider/
@@ -437,10 +440,191 @@ body.custom-background {
 body {
   background-color: #ffffff;
 }
-.social-icons-menu li a:before{
+.social-icons-menu li a:before {
   display: none;
 }
 .header-bar .social-icons-menu li a {
-  color: #fff;
   font-size: 22px;
+
+  color: #ffffff;
+}
+
+.header-main {
+  padding: 15px 2em;
+  a {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    text-decoration: none;
+
+    color: #000000;
+
+    align-content: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    img {
+      width: 20%;
+    }
+    h1 {
+      font-size: 6em;
+
+      width: 80%;
+      margin: 0;
+
+      text-align: center;
+
+      @include text3d(#0982c1);
+    }
+  }
+}
+.main-navigation-menu li.current-menu-item > a {
+  text-decoration: none;
+}
+.main-navigation-menu {
+  li {
+    a {
+      font-size: 1rem;
+
+      padding: 1.5em;
+
+      text-shadow: $base-text-shadow;
+    }
+    &.current-menu-item {
+      a {
+        background: rgba(0,0,0,.2);
+      }
+    }
+  }
+}
+
+.social-icons-menu li {
+  &:hover {
+    i {
+      color: $yellow;
+    }
+  }
+}
+.blog-title,
+.page-title,
+.sidebar-title,
+.archive-title {
+  padding: 1.5em 1em;
+
+  text-shadow: $base-text-shadow;
+}
+.blog-header,
+.archive-header,
+.page-header,
+.sidebar-header {
+  padding: 0;
+}
+
+.post-layout-two-columns .post-wrapper .post-column {
+  box-sizing: border-box;
+  width: 50%;
+  padding-right: 2em;
+  a {
+    color: $blue;
+  }
+}
+.entry-content {
+  p {
+    line-height: 1.4;
+  }
+  a {
+    color: $blue;
+  }
+  ul,
+  ol {
+    padding-left: 30px;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
+.widget {
+  font-size: 18px;
+  line-height: 1.4;
+
+  margin-bottom: 20px;
+  padding: 0 1.5em;
+  h6 {
+    font-size: 26px;
+
+    margin: 0 0 20px;
+  }
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      margin-bottom: 8px;
+      a {
+        color: #000000;
+      }
+    }
+  }
+  &.widget_search {
+    height: 45px;
+    padding: 0 1.5em;
+    form {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+      .search-input {
+        width: 91%;
+        height: 77%;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 80em) {
+  .main-sidebar-toggle,
+  .small-sidebar-toggle {
+    padding: 1.35rem 1.6rem;
+  }
+  .blog-title,
+  .page-title,
+  .sidebar-title,
+  .archive-title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 790px) {
+  .header-main a h1 {
+    font-size: 4em;
+  }
+}
+@media (max-width: 640px) {
+  .header-main a h1 {
+    font-size: 2em !important;
+  }
+  .post-layout-two-columns .post-wrapper .post-column {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+@media (max-width: 400px) {
+  .header-main a {
+    flex-wrap: wrap !important;
+    h1,
+    img {
+      width: 100% !important;
+    }
+  }
+  .main-sidebar-toggle,
+  .small-sidebar-toggle {
+    display: none;
+  }
 }
