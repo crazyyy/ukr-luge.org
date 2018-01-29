@@ -593,7 +593,36 @@ body {
 #infinite-footer {
   display: none !important;
 }
+.teams-group {
+  .team-title {
+    font-size: 160%;
 
+    margin-bottom: 15px;
+
+    border-bottom: 1px dotted $blue;
+  }
+  .teams-members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: flex-start;
+    .member {
+      img {
+        margin-bottom: 10px;
+        max-width: 100%;
+      }
+      .member-title {
+        font-size: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      margin-bottom: 15px;
+      width: 32%;
+    }
+  }
+}
 @media only screen and (max-width: 80em) {
   .main-sidebar-toggle,
   .small-sidebar-toggle {
