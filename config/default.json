@@ -1,6 +1,6 @@
 {
   "domain": "ukr-luge.work",
-  "theme": "'wp-ukrluge",
+  "theme": "wp-ukrluge",
   "path": {
     "base": {
       "src":"assets/",

@@ -51,6 +51,7 @@
         <a href="<?php echo home_url(); ?>" id="logo" class="site-branding clearfix">
           <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
           <h1>Федерація санного спорту України</h1>
+          <img src="<?php echo get_template_directory_uri(); ?>/img/logo-second.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
         </a>
         <!-- .site-branding -->
       </div>

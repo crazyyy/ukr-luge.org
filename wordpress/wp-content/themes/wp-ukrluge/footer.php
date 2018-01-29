@@ -20,7 +20,6 @@
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider-min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/navigation.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/sidebar.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/slider.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/spin.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.spin.js"></script>
 

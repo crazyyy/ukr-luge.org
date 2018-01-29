@@ -13,12 +13,9 @@
             <div id="post-slider" class="post-slider zeeflexslider">
               <ul class="zeeslides">
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                  <?php if ( has_post_thumbnail()) { ?>
                   <li id="slide-<?php the_ID(); ?>" class="zeeslide clearfix">
-                    <?php if ( has_post_thumbnail()) { ?>
-                      <img src="<?php echo the_post_thumbnail_url('medium'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-                    <?php } else { ?>
-                      <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-                    <?php } ?>
+                    <img src="<?php echo the_post_thumbnail_url('medium'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
                     <div class="slide-content clearfix">
                       <h2 class="slide-title entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
                       <div class="entry-content clearfix">
@@ -26,6 +23,7 @@
                       </div><!-- .entry-content -->
                     </div>
                   </li>
+                  <?php } ?>
                 <?php endwhile; endif; ?>
               </ul>
             </div>
